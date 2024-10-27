@@ -56,11 +56,7 @@ router.get("/", deviceController.getAll)
  *       404:
  *         description: Device not found
  */
-router.get(
-  "/similarDevices/:deviceId/:categoryId",
-  authMiddleware.checkAssessToken,
-  deviceController.getSimilarDevices,
-)
+router.get("/similarDevices/:deviceId/:categoryId", deviceController.getSimilarDevices)
 
 /**
  * @swagger
@@ -88,7 +84,7 @@ router.get(
  *       404:
  *         description: Device not found
  */
-router.get("/:deviceId", authMiddleware.checkAssessToken, deviceController.getById)
+router.get("/:deviceId", deviceController.getById)
 
 /**
  * @swagger

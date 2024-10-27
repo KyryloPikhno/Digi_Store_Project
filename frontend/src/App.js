@@ -28,8 +28,8 @@ function App() {
         <Route path={"/password/forgot"} element={<PasswordForgotPage />} />
         <Route path={"/password/new"} element={<NewPasswordAfterForgotPage />} />
         <Route path={"/devices"} element={<DevicesPage />} />
+        <Route path={"/devices/:id"} element={<DeviceDetailsPage />} />
         <Route element={<PrivateRoute />}>
-          <Route path={"/devices/:id"} element={<DeviceDetailsPage />} />
           <Route path={"/account"} element={<AccountPage />} />
           <Route path={"/order"} element={<OrderPage />} />
           <Route path={"/order/payment/:orderId"} element={<PaymentPage />} />

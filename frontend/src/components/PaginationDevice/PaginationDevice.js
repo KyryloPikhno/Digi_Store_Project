@@ -75,14 +75,7 @@ const PaginationDevice = ({ total_pages, page }) => {
     setQuery(obj)
   }
 
-  return (
-    <Pagination
-      color="standard"
-      count={total_pages}
-      page={page}
-      onChange={handleChange}
-    ></Pagination>
-  )
+  return <Pagination color="standard" count={total_pages} page={page} onChange={handleChange} />
 }
 
 export { PaginationDevice }
