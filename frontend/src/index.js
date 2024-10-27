@@ -6,7 +6,7 @@ import { unstable_HistoryRouter as BrowserRouter } from "react-router-dom"
 import App from "./App"
 import { setupStore } from "./redux"
 import { history } from "./services"
-import "./index.css"
+import "./styles/index.css"
 
 const store = setupStore()
 

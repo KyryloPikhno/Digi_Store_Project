@@ -1,14 +1,11 @@
 import { Logo } from "../Logo/Logo"
 
-import css from "./Footer.module.css"
-
 const Footer = () => {
   return (
-    <div className={css.footer}>
+    <div className="border h-[400px] w-full">
       <div>
         <Logo />
       </div>
-      <div></div>
     </div>
   )
 }

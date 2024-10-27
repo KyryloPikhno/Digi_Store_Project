@@ -5,8 +5,6 @@ import { Outlet } from "react-router-dom"
 import { Footer, Header } from "../components"
 import { accountActions } from "../redux/slices"
 
-import css from "./mainLayout.module.css"
-
 const MainLayout = () => {
   const dispatch = useDispatch()
 
@@ -15,14 +13,14 @@ const MainLayout = () => {
   }, [dispatch])
 
   return (
-    <div className={css.container}>
-      <div className={css.block}>
+    <div className="">
+      <div className="border">
         <Header />
       </div>
-      <div className={css.block}>
+      <div className="border">
         <Outlet />
       </div>
-      <div className={css.block}>
+      <div className="border">
         <Footer />
       </div>
     </div>
