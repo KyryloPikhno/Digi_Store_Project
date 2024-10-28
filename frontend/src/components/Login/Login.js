@@ -9,8 +9,6 @@ import { authService } from "../../services"
 import { loginValidator } from "../../validators"
 import { InputField } from "../InputField/InputField"
 
-import css from "./Login.module.css"
-
 const Login = () => {
   const [error, setError] = useState(false)
 
@@ -36,8 +34,6 @@ const Login = () => {
   const dispatch = useDispatch()
 
   let submit = async (user) => {
-    console.log("user", user)
-
     try {
       const { data } = await authService.login(user)
 
