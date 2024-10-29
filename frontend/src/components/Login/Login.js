@@ -10,21 +10,19 @@ import { loginValidator } from "../../validators"
 import { InputField } from "../InputField/InputField"
 
 const Login = () => {
-  const [error, setError] = useState(false)
-
   const methods = useForm({
     defaultValues: {
-      email: null,
-      password: null,
+      email: "",
+      password: "",
     },
     resolver: joiResolver(loginValidator),
-    mode: "all",
+    mode: "onSubmit",
   })
 
   const {
-    register,
+    setError,
     handleSubmit,
-    formState: { errors, isValid },
+    formState: { isValid, errors },
   } = methods
 
   const [query] = useSearchParams()
@@ -43,7 +41,7 @@ const Login = () => {
 
       navigate("/home")
     } catch (e) {
-      setError(e.message)
+      setError("root", { type: "manual", message: e.message })
     }
   }
 
@@ -56,10 +54,17 @@ const Login = () => {
           <InputField name="email" placeholder="Email" />
           <InputField name="password" type="password" placeholder="Password" />
 
-          <button type="submit" className="" disabled={!isValid}>
+          {errors.root?.message ? (
+            <span className="first-letter:uppercase top-full right-0 text-[9px] leading-3 text-[#FF1C5E]">
+              {errors.root.message}
+            </span>
+          ) : null}
+
+          <button type="submit" className="border" disabled={!isValid}>
             Login
           </button>
-          <NavLink to={"/password/forgot"}>Forgot your password?</NavLink>
+
+          <NavLink to="/password/forgot">Forgot your password?</NavLink>
         </form>
       </FormProvider>
     </div>

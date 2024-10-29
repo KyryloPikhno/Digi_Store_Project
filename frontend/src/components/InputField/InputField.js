@@ -58,7 +58,7 @@ const InputField = ({
         ) : null}
 
         {error ? (
-          <span className="first-letter:uppercase absolute top-full right-0 text-[9px] leading-3 text-[#FF1C5E] text-right">
+          <span className="first-letter:uppercase top-full right-0 text-[9px] leading-3 text-[#FF1C5E]">
             {error}
           </span>
         ) : null}
