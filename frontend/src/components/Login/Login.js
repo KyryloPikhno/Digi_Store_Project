@@ -1,5 +1,4 @@
 import { joiResolver } from "@hookform/resolvers/joi/dist/joi"
-import { useState } from "react"
 import { useForm, FormProvider } from "react-hook-form"
 import { useDispatch } from "react-redux"
 import { NavLink, useNavigate, useSearchParams } from "react-router-dom"
@@ -12,8 +11,8 @@ import { InputField } from "../InputField/InputField"
 const Login = () => {
   const methods = useForm({
     defaultValues: {
-      email: "",
-      password: "",
+      email: "mr.test@i.ua",
+      password: "qwerty123",
     },
     resolver: joiResolver(loginValidator),
     mode: "onSubmit",
@@ -41,7 +40,11 @@ const Login = () => {
 
       navigate("/home")
     } catch (e) {
-      setError("root", { type: "manual", message: e.message })
+      if (e.response) {
+        setError("root", { type: "manual", message: e.response.data.message })
+      } else {
+        setError("root", { type: "manual", message: "An unexpected error occurred." })
+      }
     }
   }
 
