@@ -1,15 +1,31 @@
-const Button = ({ onClick, title, disabled, styles = "", isSubmit = false }) => {
+const Button = ({
+  onClick,
+  text,
+  disabled,
+  error = "",
+  styles = "",
+  isSubmit = false,
+  isSubmitting = false,
+}) => {
   return (
-    <button
-      className={`px-[22px] whitespace-nowrap text-sm h-9 leading-[11px] font-medium transform sm:transform-none sm:h-12 ${styles} ${type} ${
-        disabled ? "cursor-default" : ""
-      }`}
-      disabled={disabled}
-      onClick={onClick}
-      type={isSubmit ? "submit" : "button"}
-    >
-      {title}
-    </button>
+    <div>
+      <button
+        className={`px-[22px] border whitespace-nowrap text-sm h-9 leading-[11px] font-medium transform sm:transform-none sm:h-12 ${styles} ${
+          disabled ? "cursor-default" : "bg-yellow-200"
+        }`}
+        disabled={disabled || isSubmitting}
+        onClick={onClick}
+        type={isSubmit ? "submit" : "button"}
+      >
+        {isSubmitting ? "Logging in..." : `${text}`}
+      </button>
+
+      {error ? (
+        <span className="first-letter:uppercase top-full right-0 text-[9px] leading-3 text-[#FF1C5E]">
+          {error}
+        </span>
+      ) : null}
+    </div>
   )
 }
 

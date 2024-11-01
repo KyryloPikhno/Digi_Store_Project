@@ -17,28 +17,26 @@ const LoginPage = () => {
     },
     resolver: joiResolver(loginValidator),
     mode: "onSubmit",
+    reValidateMode: "onSubmit",
   })
 
   const {
     setError,
+    clearErrors,
     handleSubmit,
-    formState: { isValid, errors },
+    formState: { isValid, errors, isSubmitting },
   } = methods
 
   const [query] = useSearchParams()
-
   const navigate = useNavigate()
-
   const dispatch = useDispatch()
 
-  let submit = async (user) => {
+  const submit = async (user) => {
     try {
       const { data } = await authService.login(user)
 
       authService.setTokens(data)
-
       dispatch(accountActions.getByAccess())
-
       navigate("/home")
     } catch (e) {
       if (e.response) {
@@ -49,25 +47,28 @@ const LoginPage = () => {
     }
   }
 
+  const isError = !!Object.entries(errors).length
+
   return (
     <div className="">
       {query.has("expSession") && <h1>Session end</h1>}
 
       <FormProvider {...methods}>
-        <form className="w-[500px] flex flex-col gap-4" onSubmit={handleSubmit(submit)}>
+        <form
+          onChange={() => isError && clearErrors()}
+          className="w-[500px] flex flex-col gap-4"
+          onSubmit={handleSubmit(submit)}
+        >
           <InputField name="email" placeholder="Email" />
           <InputField name="password" type="password" placeholder="Password" />
 
-          {errors.root?.message ? (
-            <span className="first-letter:uppercase top-full right-0 text-[9px] leading-3 text-[#FF1C5E]">
-              {errors.root.message}
-            </span>
-          ) : null}
-
-          <button type="submit" className="border" disabled={!isValid}>
-            Login
-          </button>
-          <Button title="" />
+          <Button
+            text="Login"
+            error={errors.root?.message}
+            disabled={isError}
+            isSubmitting={isSubmitting}
+            isSubmit
+          />
 
           <NavLink to="/password/forgot">Forgot your password?</NavLink>
         </form>
