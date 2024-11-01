@@ -24,7 +24,7 @@ const LoginPage = () => {
     setError,
     clearErrors,
     handleSubmit,
-    formState: { isValid, errors, isSubmitting },
+    formState: { errors, isSubmitting },
   } = methods
 
   const [query] = useSearchParams()

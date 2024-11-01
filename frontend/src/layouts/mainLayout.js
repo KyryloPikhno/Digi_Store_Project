@@ -13,11 +13,11 @@ const MainLayout = () => {
   }, [dispatch])
 
   return (
-    <div className="">
+    <div>
       <div className="border">
         <Header />
       </div>
-      <div className="border">
+      <div className="border h-[90vh] flex items-center justify-center">
         <Outlet />
       </div>
       <div className="border">
