@@ -1,7 +1,6 @@
 export * from "./NewPasswordAfterForgot/NewPasswordAfterForgot"
 export * from "./PasswordForgot/PasswordForgot"
 export * from "./DeviceDetails/DeviceDetails"
-export * from "./Register/Register"
 export * from "./Devices/Devices"
 export * from "./Payment/Payment"
 export * from "./Account/Account"

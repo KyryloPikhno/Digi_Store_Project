@@ -12,6 +12,10 @@ const registerValidator = Joi.object({
   password: Joi.string().regex(regexp.PASSWORD).required().messages({
     "string.pattern.base": "Only english letters. Min 1, max 20",
   }),
+  confirmPassword: Joi.string().valid(Joi.ref("password")).required().messages({
+    "any.only": "Passwords do not match",
+    "any.required": "Confirm password is required",
+  }),
 })
 
 export { registerValidator }
