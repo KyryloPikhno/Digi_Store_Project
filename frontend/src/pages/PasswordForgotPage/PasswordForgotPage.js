@@ -34,6 +34,8 @@ const SuccessModal = ({ open, onClose }) => {
 }
 
 const PasswordForgotPage = () => {
+  const [open, setOpen] = useState(false)
+
   const methods = useForm({
     defaultValues: {
       name: "",
@@ -50,12 +52,10 @@ const PasswordForgotPage = () => {
     formState: { errors, isSubmitting },
   } = methods
 
-  const [open, setOpen] = useState(false)
-
   const submit = async (user) => {
     try {
       await passwordForgotService.forgotPassword(user)
-      await setOpen(true)
+      setOpen(true)
     } catch (e) {
       if (e.response) {
         setError("root", { type: "manual", message: e.response.data.message })
