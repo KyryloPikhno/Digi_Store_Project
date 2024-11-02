@@ -3,8 +3,9 @@ import { NavLink } from "react-router-dom"
 
 import { baseURL } from "../../configs"
 import { deviceActions, orderActions } from "../../redux/slices"
-import deviceDeleteSound from "../../sounds/46c6ae07207785c.mp3"
-import deviceAdderSound from "../../sounds/vylet-2.mp3"
+
+// const deviceAdderSound = import("http://localhost:3000/public/sounds/sound_1")
+// const deviceDeleteSound = import("http://localhost:3000/public/sounds/sound_2")
 
 const Device = ({ device }) => {
   const dispatch = useDispatch()
@@ -13,11 +14,11 @@ const Device = ({ device }) => {
 
   const { name, price, images, _id, countInStock } = device
 
-  const audioAdderSound = new Audio(deviceAdderSound)
-  const audioDeleteSound = new Audio(deviceDeleteSound)
+  // const audioAdderSound = new Audio(deviceAdderSound)
+  // const audioDeleteSound = new Audio(deviceDeleteSound)
 
   const deviceAdder = () => {
-    audioAdderSound.play()
+    // audioAdderSound.play()
 
     dispatch(
       orderActions.addDevice({ _id, name, image: images[0], quantity: 1, price, countInStock }),
@@ -25,7 +26,7 @@ const Device = ({ device }) => {
   }
 
   const deviceDelete = () => {
-    audioDeleteSound.play()
+    // audioDeleteSound.play()
 
     dispatch(deviceActions.deleteDevice({ _id }))
   }
