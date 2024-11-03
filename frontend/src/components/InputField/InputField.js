@@ -9,7 +9,7 @@ const InputField = ({
   mask = "",
   type = "text",
   className = "",
-  placeholder = "...",
+  placeholder = "",
 }) => {
   const {
     control,
