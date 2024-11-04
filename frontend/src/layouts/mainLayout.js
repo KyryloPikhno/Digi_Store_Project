@@ -14,13 +14,13 @@ const MainLayout = () => {
 
   return (
     <div>
-      <div className="border">
+      <div className="border w-[100vw]">
         <Header />
       </div>
-      <div className="border h-[90vh] flex items-center justify-center">
+      <div className="border w-[100vw] h-[90vh]">
         <Outlet />
       </div>
-      <div className="border">
+      <div className="border w-[100vw]">
         <Footer />
       </div>
     </div>

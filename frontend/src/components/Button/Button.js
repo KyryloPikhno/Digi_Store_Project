@@ -3,15 +3,15 @@ const Button = ({
   text,
   disabled,
   error = "",
-  styles = "",
+  className = "",
   isSubmit = false,
   isSubmitting = false,
 }) => {
   return (
-    <div>
+    <div className="w-full relative">
       <button
-        className={`px-[22px] border whitespace-nowrap text-sm h-9 leading-[11px] font-medium transform sm:transform-none sm:h-12 ${styles} ${
-          disabled ? "cursor-default" : "bg-yellow-200"
+        className={`px-[22px] w-full rounded-[8px] whitespace-nowrap text-[#FFFFFF] text-[14px] leading-[14px] font-medium h-12 ${className} ${
+          disabled ? "cursor-default bg-[#EEEEEE]" : "bg-[#000000]"
         }`}
         disabled={disabled || isSubmitting}
         onClick={onClick}
@@ -21,7 +21,7 @@ const Button = ({
       </button>
 
       {error ? (
-        <span className="first-letter:uppercase top-full right-0 text-[9px] leading-3 text-[#FF1C5E]">
+        <span className="absolute bottom-[-14px] text-center left-2 first-letter:uppercase text-[9px] leading-3 text-[#FF1C5E]">
           {error}
         </span>
       ) : null}

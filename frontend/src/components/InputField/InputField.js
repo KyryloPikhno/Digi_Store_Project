@@ -26,19 +26,19 @@ const InputField = ({
       ) : null}
 
       <div className="relative">
+        <p className="absolute pl-2 pt-1 text-[12px]">{placeholder}</p>
         <Controller
           control={control}
           name={name}
           render={({ field: { value, onChange } }) => (
             <InputMask
-              className={`h-12 focus:outline-none px-4 border text-[#000000] w-full text-[14px] ${className} ${
+              className={`pt-2 focus:outline-none px-4 h-14 border-[2px] rounded-[8px] text-[#000000] w-full text-[14px] ${className} ${
                 error ? "border-[#FF1C5E]" : "border-[#000000]"
               }`}
               mask={mask}
               maskChar=" "
               onChange={onChange}
               onFocus={onFocus}
-              placeholder={placeholder}
               type={passwordVisible ? type : "text"}
               value={value}
             />
@@ -58,7 +58,7 @@ const InputField = ({
         ) : null}
 
         {error ? (
-          <span className="first-letter:uppercase top-full right-0 text-[9px] leading-3 text-[#FF1C5E]">
+          <span className="absolute bottom-[-14px] text-center left-2 first-letter:uppercase text-[9px] leading-3 text-[#FF1C5E]">
             {error}
           </span>
         ) : null}

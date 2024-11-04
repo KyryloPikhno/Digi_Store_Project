@@ -50,29 +50,44 @@ const LoginPage = () => {
   const isError = !!Object.entries(errors).length
 
   return (
-    <div className="">
+    <div className="flex h-full justify-between">
       {query.has("expSession") && <h1>Session end</h1>}
 
       <FormProvider {...methods}>
         <form
           onChange={() => isError && clearErrors()}
-          className="w-[500px] flex flex-col gap-4"
+          className="flex flex-col w-[60%] items-center justify-center"
           onSubmit={handleSubmit(submit)}
         >
-          <InputField name="email" placeholder="Email" />
-          <InputField name="password" type="password" placeholder="Password" />
+          <div className="flex w-[500px] flex-col items-center justify-center gap-4">
+            <p className="text-[30px]">Sign into Account</p>
+            <InputField name="email" placeholder="Email" />
+            <InputField name="password" type="password" placeholder="Password" />
 
-          <Button
-            text="Login"
-            error={errors.root?.message}
-            disabled={isError}
-            isSubmitting={isSubmitting}
-            isSubmit
-          />
-
-          <NavLink to="/password/forgot">Forgot your password?</NavLink>
+            <Button
+              text="Login"
+              error={errors.root?.message}
+              disabled={isError}
+              isSubmitting={isSubmitting}
+              isSubmit
+            />
+            <NavLink to="/password/forgot">Forgot your password?</NavLink>
+          </div>
         </form>
       </FormProvider>
+
+      <div className="rounded-tl-[50px] flex flex-col items-center justify-center h-full w-[40%] bg-[#000000] text-[#FFFFFF]">
+        <p className="text-[30px]">Hello, Friend!</p>
+        <p className="text-[14px] mb-4">Fill up personal information and start journey with us</p>
+
+        <div>
+          <Button
+            text="Register"
+            className="border-[2px] border-[#FFFFFF]"
+            onClick={() => navigate("/register")}
+          />
+        </div>
+      </div>
     </div>
   )
 }
