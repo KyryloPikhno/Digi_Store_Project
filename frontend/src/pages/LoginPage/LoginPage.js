@@ -60,9 +60,13 @@ const LoginPage = () => {
           onSubmit={handleSubmit(submit)}
         >
           <div className="flex w-[500px] flex-col items-center justify-center gap-4">
-            <p className="text-[30px]">Sign into Account</p>
+            <p className="text-[30px]">Login to DigiStore</p>
             <InputField name="email" placeholder="Email" />
             <InputField name="password" type="password" placeholder="Password" />
+
+            <NavLink className="underline" to="/password/forgot">
+              Forgot your password?
+            </NavLink>
 
             <Button
               text="Login"
@@ -71,14 +75,15 @@ const LoginPage = () => {
               isSubmitting={isSubmitting}
               isSubmit
             />
-            <NavLink to="/password/forgot">Forgot your password?</NavLink>
           </div>
         </form>
       </FormProvider>
 
       <div className="flex flex-col items-center justify-center h-full w-[40%] text-[#FFFFFF]">
         <p className="text-[30px]">Hello, Friend!</p>
-        <p className="text-[14px] mb-4">Fill up personal information and start journey with us</p>
+        <p className="text-[14px] mb-4 w-[190px] text-center">
+          Enter your personal details and start shopping with us
+        </p>
 
         <div>
           <Button

@@ -8,8 +8,6 @@ import { DevicesFilter } from "../DevicesFilter/DevicesFilter"
 import { DevicesSearchForm } from "../DevicesSearchForm/DevicesSearchForm"
 import { Logo } from "../Logo/Logo"
 
-import css from "./Header.module.css"
-
 const Header = () => {
   const navigate = useNavigate()
 
@@ -32,6 +30,8 @@ const Header = () => {
     location.pathname === `/devices/${location.pathname.split("/devices/")[1]}`
   const devicesPathname = location.pathname === "/devices"
   const homePathname = location.pathname === "/home"
+  const loginPathname = location.pathname === "/login"
+  const registerPathname = location.pathname === "/register"
 
   const logoutAll = async (_id) => {
     await dispatch(orderActions.reset())
@@ -42,24 +42,24 @@ const Header = () => {
   }
 
   return (
-    <div className={css.header}>
-      <div className={css.wrap}>
-        <div className={css.logoAndForm}>
+    <div className="absolute w-full">
+      <div className="flex px-5 justify-between h-10 items-center">
+        <div className={registerPathname ? "text-[#FFFFFF]" : ""}>
           <Logo />
           {(devicesPathname || homePathname || deviceDetailsPathname) && <DevicesSearchForm />}
         </div>
         {!account ? (
-          <div className={css.buttons}>
+          <div className={`flex gap-5 ${loginPathname ? "text-[#FFFFFF]" : ""}`}>
             <NavLink to={"/login"}>Login</NavLink>
             <NavLink to={"/register"}>Register</NavLink>
           </div>
         ) : (
-          <div className={css.buttons}>
-            <div className={css.nav}>
+          <div className="">
+            <div className="">
               {!!account?.isAdmin && <NavLink to={"/admin"}>Admin</NavLink>}
               <NavLink to={"/account"}>Account</NavLink>
               <NavLink to={"/order"}>
-                Order {quantity !== 0 && <div className={css.quantity}>{quantity}</div>}
+                Order {quantity !== 0 && <div className="">{quantity}</div>}
               </NavLink>
               <button onClick={() => logoutAll(account._id)}>Logout</button>
             </div>

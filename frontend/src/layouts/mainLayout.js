@@ -14,13 +14,13 @@ const MainLayout = () => {
 
   return (
     <div>
-      <div className="border w-[100vw]">
+      <div className="w-[100vw]">
         <Header />
       </div>
-      <div className="border w-[100vw] h-[90vh]">
+      <div className="w-[100vw] h-[100vh]">
         <Outlet />
       </div>
-      <div className="border w-[100vw]">
+      <div className="w-[100vw]">
         <Footer />
       </div>
     </div>

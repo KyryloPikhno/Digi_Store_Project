@@ -68,14 +68,16 @@ const PasswordForgotPage = () => {
   const isError = !!Object.entries(errors).length
 
   return (
-    <div>
-      <FormProvider {...methods}>
+    <div className="flex h-full justify-center items-center">
+      <FormProvider {...methods} className="">
         <form
           onChange={() => isError && clearErrors()}
-          className="w-[500px] flex flex-col gap-4"
+          className="w-[500px] flex flex-col gap-4 justify-center items-center"
           onSubmit={handleSubmit(submit)}
         >
-          <p>To reset your password, enter your name and email address you use to sign in.</p>
+          <p className="text-center">
+            Enter the name and email address you use to login to reset your password.{" "}
+          </p>
 
           <InputField name="name" placeholder="Name" />
           <InputField name="email" placeholder="Email" />
