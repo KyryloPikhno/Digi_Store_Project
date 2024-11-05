@@ -50,13 +50,13 @@ const LoginPage = () => {
   const isError = !!Object.entries(errors).length
 
   return (
-    <div className="flex h-full justify-between">
+    <div className="flex h-full justify-between bg-[#000000]">
       {query.has("expSession") && <h1>Session end</h1>}
 
       <FormProvider {...methods}>
         <form
           onChange={() => isError && clearErrors()}
-          className="flex flex-col w-[60%] items-center justify-center"
+          className="flex flex-col w-[60%] bg-[#FFFFFF] rounded-tr-[50px] rounded-br-[50px] items-center justify-center"
           onSubmit={handleSubmit(submit)}
         >
           <div className="flex w-[500px] flex-col items-center justify-center gap-4">
@@ -76,7 +76,7 @@ const LoginPage = () => {
         </form>
       </FormProvider>
 
-      <div className="rounded-tl-[50px] flex flex-col items-center justify-center h-full w-[40%] bg-[#000000] text-[#FFFFFF]">
+      <div className="flex flex-col items-center justify-center h-full w-[40%] text-[#FFFFFF]">
         <p className="text-[30px]">Hello, Friend!</p>
         <p className="text-[14px] mb-4">Fill up personal information and start journey with us</p>
 
