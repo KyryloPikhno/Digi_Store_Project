@@ -4,6 +4,7 @@ import { useState } from "react"
 import { FormProvider, useForm } from "react-hook-form"
 import { NavLink } from "react-router-dom"
 
+import { ModalWindow } from "../../components"
 import { Button } from "../../components/Button/Button"
 import { InputField } from "../../components/InputField/InputField"
 import { passwordForgotService } from "../../services"
@@ -92,7 +93,19 @@ const PasswordForgotPage = () => {
         </form>
       </FormProvider>
 
-      <SuccessModal open={open} onClose={() => setOpen(false)} />
+      {/* <SuccessModal open={open} onClose={() => setOpen(false)} /> */}
+
+      <ModalWindow open={open} onClose={() => setOpen(false)}>
+        <h1>Check your email</h1>
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUufwNUpDO-QJgbjTP78P6r1XxX9pHyfVwJg&usqp=CAU"
+          alt="smiley-icon"
+        />
+        <p>
+          Check your<span>email</span>inbox for instructions from us on how to reset your password.
+        </p>
+        <NavLink to="/login">Go back to login screen</NavLink>
+      </ModalWindow>
     </div>
   )
 }
