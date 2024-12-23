@@ -93,7 +93,7 @@ const PasswordForgotPage = () => {
         </form>
       </FormProvider>
 
-      {/* <SuccessModal open={open} onClose={() => setOpen(false)} /> */}
+      <SuccessModal open={open} onClose={() => setOpen(false)} />
 
       <ModalWindow open={open} onClose={() => setOpen(false)}>
         <h1>Check your email</h1>
