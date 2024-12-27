@@ -4,8 +4,6 @@ import { useDispatch, useSelector } from "react-redux"
 
 import { brandActions } from "../../redux/slices"
 
-import css from "./Brands.module.css"
-
 const Brands = () => {
   const { brands, error, loading } = useSelector((state) => state.brandReducer)
 
@@ -16,8 +14,8 @@ const Brands = () => {
   }, [])
 
   return (
-    <div className={css.container}>
-      {error && <span className={css.error}>{error.message}</span>}
+    <div className="">
+      {error && <span className="">{error.message}</span>}
       <h3>All brands</h3>
       {brands &&
         brands.map((brand) => (
