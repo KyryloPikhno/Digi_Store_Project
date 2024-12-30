@@ -4,8 +4,6 @@ import { useDispatch, useSelector } from "react-redux"
 
 import { categoryActions } from "../../redux/slices"
 
-import css from "./Categories.module.css"
-
 const Categories = () => {
   const { categories, error, loading } = useSelector((state) => state.categoryReducer)
 
@@ -16,8 +14,8 @@ const Categories = () => {
   }, [])
 
   return (
-    <div className={css.container}>
-      {error && <span className={css.error}> {error.message}</span>}
+    <div className="">
+      {error && <span className=""> {error.message}</span>}
       <h3>All categories</h3>
       {categories &&
         categories.map((category) => (
