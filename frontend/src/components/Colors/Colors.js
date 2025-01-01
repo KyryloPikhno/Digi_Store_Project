@@ -4,8 +4,6 @@ import { useDispatch, useSelector } from "react-redux"
 
 import { colorActions } from "../../redux/slices"
 
-import css from "./Colors.module.css"
-
 const Colors = () => {
   const { colors, error, loading } = useSelector((state) => state.colorReducer)
 
@@ -16,8 +14,8 @@ const Colors = () => {
   }, [])
 
   return (
-    <div className={css.container}>
-      {error && <span className={css.error}> {error.message}</span>}
+    <div className="">
+      {error && <span className=""> {error.message}</span>}
       <h3>All colors</h3>
       {colors &&
         colors.map((color) => (
